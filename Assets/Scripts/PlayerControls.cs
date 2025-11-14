@@ -44,13 +44,12 @@ public class PlayerControls : MonoBehaviour
 
     private bool IsGrounded()
     {
-        // Prefer using the player's collider to check contact with ground layers.
+
         if (col != null)
         {
             return col.IsTouchingLayers(groundLayer.value);
         }
 
-        // Fallback: short overlap circle under the player's position
         Vector2 origin = (Vector2)transform.position + Vector2.down * 0.1f;
         return Physics2D.OverlapCircle(origin, 0.12f, groundLayer) != null;
     }
