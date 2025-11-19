@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class keyScript : MonoBehaviour
 {
-    public LogicScript logic;
+    private LogicScript logic;
     private SpriteRenderer spr;
     void Start()
     {
