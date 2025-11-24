@@ -1,18 +1,27 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
 
     private BoxCollider2D door;
-    public UIDocument UI;
-    private Label keyLabel;
+    public GameObject UI;
+    public GameObject key;
+
+    private VisualElement keyLabel;
+    private VisualElement uiRoot;
+
+    private UIDocument uiDoc;
+    private VisualElement winElement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         door = GameObject.FindGameObjectWithTag("Door").GetComponent<BoxCollider2D>();
-        keyLabel = GetComponent().rootVisualElement.Q(key);
+        uiRoot = UI.GetComponent<UIDocument>().rootVisualElement;
+        keyLabel = uiRoot.Q<VisualElement>("key");
+        uiDoc = UI.GetComponent<UIDocument>();
+
     }
 
     // Update is called once per frame
@@ -22,7 +31,18 @@ public class LogicScript : MonoBehaviour
     
     public void keyEnter()
     {
+        Destroy(key);
+            if (keyLabel == null)
+        {
+            Debug.Log("KeyLabel is null");
+        }
         door.isTrigger = true;
-        keyLabel.tintColor =  new Color(255f, 255f, 255f, 255f);
+        keyLabel.style.unityBackgroundImageTintColor = new StyleColor(new Color32(255, 255, 255, 255));
+    }
+    public void WinGame()
+    {
+        uiRoot= winElement;
+        Debug.Log("You win");
+        SceneManager.LoadScene("WinScene");
     }
 }
