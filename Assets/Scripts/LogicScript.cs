@@ -13,7 +13,7 @@ public class LogicScript : MonoBehaviour
 
     private UIDocument uiDoc;
     private VisualElement winElement;
-
+    private PlayerControls controller;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +21,7 @@ public class LogicScript : MonoBehaviour
         uiRoot = UI.GetComponent<UIDocument>().rootVisualElement;
         keyLabel = uiRoot.Q<VisualElement>("key");
         uiDoc = UI.GetComponent<UIDocument>();
+        controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>();
 
     }
 
@@ -44,5 +45,10 @@ public class LogicScript : MonoBehaviour
         uiRoot= winElement;
         Debug.Log("You win");
         SceneManager.LoadScene("WinScene");
+    }
+
+    public void canMove()
+    {
+        controller.canMove();
     }
 }

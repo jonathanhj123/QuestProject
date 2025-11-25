@@ -14,7 +14,7 @@ public class PlayerControls : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     public LayerMask groundLayer;
-
+    public bool canmove = false;
 
 
     private void Start()
@@ -25,7 +25,10 @@ public class PlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (canmove) 
+        {
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        } 
     }
 
 
@@ -52,5 +55,10 @@ public class PlayerControls : MonoBehaviour
 
         Vector2 origin = (Vector2)transform.position + Vector2.down * 0.1f;
         return Physics2D.OverlapCircle(origin, 0.12f, groundLayer) != null;
+    }
+
+    public void canMove()
+    {
+        canmove = true;
     }
 }
