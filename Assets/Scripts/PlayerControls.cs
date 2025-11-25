@@ -45,7 +45,6 @@ public class PlayerControls : MonoBehaviour
     
         if (IsGrounded())
         {
-
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
