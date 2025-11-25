@@ -13,7 +13,10 @@ public class LogicScript : MonoBehaviour
 
     private UIDocument uiDoc;
     private VisualElement winElement;
-    private PlayerControls controller;
+    private AudioSource _Ambience;
+    [SerializeField] private AudioClip jump;
+    [SerializeField] private AudioClip keyPickup;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +24,7 @@ public class LogicScript : MonoBehaviour
         uiRoot = UI.GetComponent<UIDocument>().rootVisualElement;
         keyLabel = uiRoot.Q<VisualElement>("key");
         uiDoc = UI.GetComponent<UIDocument>();
-        controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>();
+
 
     }
 
@@ -37,6 +40,7 @@ public class LogicScript : MonoBehaviour
         {
             Debug.Log("KeyLabel is null");
         }
+        _Ambience.PlayOneShot(keyPickup, 0.5f);
         door.isTrigger = true;
         keyLabel.style.unityBackgroundImageTintColor = new StyleColor(new Color32(255, 255, 255, 255));
     }
@@ -47,8 +51,8 @@ public class LogicScript : MonoBehaviour
         SceneManager.LoadScene("WinScene");
     }
 
-    public void canMove()
+    public void jumpsound()
     {
-        controller.canMove();
+        _Ambience.PlayOneShot(jump, 0.5f);
     }
 }

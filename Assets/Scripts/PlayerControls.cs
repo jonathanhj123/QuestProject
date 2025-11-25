@@ -15,12 +15,16 @@ public class PlayerControls : MonoBehaviour
     public float jumpForce = 7f;
     public LayerMask groundLayer;
     public bool canmove = false;
+    private LogicScript logic;
+    
+
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     private void FixedUpdate()
@@ -41,6 +45,7 @@ public class PlayerControls : MonoBehaviour
     
         if (IsGrounded())
         {
+
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
