@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1;">
-        <ui:Label text="You Win" name="Win" style="top: 35%; left: 25%; -unity-background-scale-mode: scale-to-fit; font-size: 100px; right: 50%; bottom: auto;" />
+        <ui:Label text="You Win" name="Win" style="top: 35%; left: 38%; -unity-background-scale-mode: scale-to-fit; font-size: 100px; right: 50%; bottom: auto;" />
         <ui:Button text="Play Again" name="restart" style="top: 35%; width: 30%; height: 10%; left: 35%; font-size: 20px;" />
     </ui:VisualElement>
 </ui:UXML>
