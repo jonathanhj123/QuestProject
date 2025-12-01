@@ -13,7 +13,7 @@ public class LogicScript : MonoBehaviour
 
     private UIDocument uiDoc;
     private VisualElement winElement;
-    private AudioSource _Ambience;
+    [SerializeField] private AudioSource _Ambience;
     [SerializeField] private AudioClip jump;
     [SerializeField] private AudioClip keyPickup;
 
